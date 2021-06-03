@@ -1,0 +1,22 @@
+.app {
+  text-align: center;
+  background-color: #e4e5e7;
+  min-height: 100vh;
+  position: relative;
+  border: 5px dashed #8be78b;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.app h2 {
+  font-size: 40px;
+  padding: 10px;
+}

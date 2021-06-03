@@ -1,0 +1,28 @@
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 50px;
+  padding: 60px 0px 40px 0px;
+  margin: 0;
+}
+
+.banner {
+  background-color: #8be78b;
+  padding: 7px;
+  border-radius: 3px;
+}
+
+.header__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 20px;
+}
+
+.header__link {
+  list-style: none;
+  display: flex;
+}
