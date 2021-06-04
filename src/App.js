@@ -18,11 +18,11 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
-          <Route path="/" component={ Home } />
-          <Route path="/General" component={ General } />
-          <Route path="/Knock" component={ Knock } />
-          <Route path="/Programming" component={ Programming } />
-          <Route path="/Random" component={Random} />
+          <Route exact path="/" component={ Home } />
+          <Route exact path="/General" component={ General } />
+          <Route exact path="/Knock" component={ Knock } />
+          <Route exact path="/Programming" component={ Programming } />
+          <Route exact path="/Random" component={Random} />
         </Switch>
       </div>
     </Router>
