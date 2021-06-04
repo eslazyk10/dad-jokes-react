@@ -11,25 +11,33 @@ function Header() {
             <nav className="header__nav">
                 <ul className="header__list">
                     <li className="header__link">
-                        <Link to="/General" style={{color: '#000', textDecoration:'none'}} >General</Link>
+                        <button>
+                            <Link to="/General" style={{color: '#000', textDecoration:'none'}} >General</Link>
+                        </button>
                     </li>
 
                     <li className="header__link">
-                        <Link to="/Knock" style={{color: '#000', textDecoration:'none'}} >Knock-Knock</Link>
+                        <button>
+                            <Link to="/Knock" style={{color: '#000', textDecoration:'none'}} >Knock-Knock</Link>
+                        </button>
                     </li>
 
                     <li className="header__link">
-                        <Link to="/Programming" style={{color: '#000', textDecoration:'none'}} >Programming</Link>
+                        <button>
+                            <Link to="/Programming" style={{color: '#000', textDecoration:'none'}} >Programming</Link>
+                        </button>
                     </li>
 
                     <li className="header__link">
-                        <Link to="/Random" style={{color: '#000', textDecoration:'none'}} >Random</Link>
+                        <button>
+                            <Link to="/Random" style={{color: '#000', textDecoration:'none'}} >Random</Link>
+                        </button>
                     </li>
                 </ul>
             </nav>
-            <h4 className="header__homeLink">
+            <button className="header__homeLink">
                 <Link to="/" style={ { color: '#000', textDecoration: 'none' } }>Back to Home</Link>
-            </h4>
+            </button>
         </div>
     );
 }

@@ -10,8 +10,8 @@
 
 .header__nav {
   background-color: #8be78b;
-  padding: 7px;
   border-radius: 3px;
+  padding: 6px;
 }
 
 .header__list {
@@ -25,4 +25,21 @@
 .header__link {
   list-style: none;
   display: flex;
+}
+
+.header button {
+  background-color: #8be78b;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+}
+
+.header button:hover {
+  border: 1px solid #000;
+  padding: 7px 15px;
+}
+
+.header__homeLink {
+  margin-top: 25px;
 }
