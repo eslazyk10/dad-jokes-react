@@ -22,7 +22,7 @@ function Footer() {
                     rel="noreferrer"
                 >"Dad Jokes API"</a>
             </p>
-            <a href="/"
+            <a href="https://github.com/eslazyk10/dad-jokes-react"
                 title="Github Code"
                 target="_blank"
                 rel="noreferrer"
