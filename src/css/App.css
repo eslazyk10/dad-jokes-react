@@ -1,9 +1,10 @@
 .app {
   text-align: center;
-  background-color: #e4e5e7;
+  background-color: #000;
   min-height: 100vh;
   position: relative;
   border: 5px dashed #8be78b;
+  color: whitesmoke;
   display: flex;
   flex-direction: column;
 }
