@@ -5,7 +5,10 @@ import axios from "axios";
 
 function General() {
 
-const [count, setCount] = useState('')
+const [ count, setCount ] = useState('');
+const [ joke, setJoke ] = useState('');
+const [ punchline, setPunchline ] = useState('');
+
 const options = {
   method: 'GET',
   url: 'https://dad-jokes.p.rapidapi.com/joke/type/general',
@@ -22,7 +25,9 @@ const max= (343);
 
 axios.request(options).then(function(response) {
     console.log(response.data.body[ count ].setup);
+    setJoke(response.data.body[ count ].setup);
     console.log(response.data.body[ count ].punchline);
+    setPunchline(response.data.body[ count ].punchline);
 }).catch(function(error) {
 	console.error(error);
 });
@@ -33,10 +38,11 @@ axios.request(options).then(function(response) {
             <h2>
                 Laughter is the best medicine!
                 <br />
-                Click her for your daily dose 😄
+                Click here for your daily dose 😄
             </h2>
             <button onClick={ getRandomNum }>Wanna see something funny?</button>
-            <h4>{ count }</h4>
+            <h2>{ joke }</h2>
+            <h3>{ punchline}</h3>
             <Footer />
         </div>
     )
