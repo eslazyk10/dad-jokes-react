@@ -1,6 +1,7 @@
 .app {
   text-align: center;
-  background-color: #2a3959;
+  /*background-color: #2a3959;*/
+  background-image: url(../images/jokebkg.jpg);
   min-height: 100vh;
   position: relative;
   color: whitesmoke;
