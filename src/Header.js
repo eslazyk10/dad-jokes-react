@@ -27,12 +27,6 @@ function Header() {
                             <Link to="/Programming" style={{color: '#000', textDecoration:'none'}} >Programming</Link>
                         </button>
                     </li>
-
-                    <li className="header__link">
-                        <button>
-                            <Link to="/Random" style={{color: '#000', textDecoration:'none'}} >Random</Link>
-                        </button>
-                    </li>
                 </ul>
             </nav>
             <button className="header__homeLink">

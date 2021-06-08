@@ -3,6 +3,8 @@ import Footer from './Footer';
 import Header from './Header';
 import axios from "axios";
 
+import "./css/Joke.css";
+
 function General() {
 
 const [ count, setCount ] = useState('');
@@ -21,28 +23,41 @@ const options = {
 const max= (343);
     function getRandomNum() {
         setCount(Math.floor(Math.random() * (max + 1)))
-}
+    }
 
-axios.request(options).then(function(response) {
-    console.log(response.data.body[ count ].setup);
-    setJoke(response.data.body[ count ].setup);
-    console.log(response.data.body[ count ].punchline);
-    setPunchline(response.data.body[ count ].punchline);
+    axios.request(options).then(function (response) {
+        console.log(response.data.body);
+        console.log(response.data.body[ count ].setup);
+        setJoke(response.data.body[ count ].setup);
+        console.log(response.data.body[ count ].punchline);
+        setPunchline(response.data.body[ count ].punchline);
 }).catch(function(error) {
 	console.error(error);
 });
     
     return (
-        <div>
+        <div className="general">
             <Header />
-            <h2>
-                Laughter is the best medicine!
-                <br />
-                Click here for your daily dose 😄
-            </h2>
-            <button onClick={ getRandomNum }>Wanna see something funny?</button>
-            <h2>{ joke }</h2>
-            <h3>{ punchline}</h3>
+            <section className="general__start">
+                <h2>
+                    Laughter is the best medicine!
+                    <br />
+                    Click here for your daily dose 😄
+                </h2>
+                <button onClick={ getRandomNum }>Reveal Jokes</button>
+            </section>
+            <section className="general__joke">
+                <div className="row">
+                    <div className="col jokeSetUp">
+                        <h3>Q: "{ joke }"</h3>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col jokePunchline">
+                        <h3>A: "{ punchline }"</h3>
+                    </div>
+                </div>
+            </section>         
             <Footer />
         </div>
     )

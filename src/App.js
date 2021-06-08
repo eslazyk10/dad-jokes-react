@@ -8,7 +8,6 @@ import Home from "./Home";
 import General from "./General";
 import Knock from "./Knock";
 import Programming from "./Programming";
-import Random from "./Random";
 
 import './css/App.css';
 
@@ -21,7 +20,6 @@ function App() {
           <Route exact path="/General" component={ General } />
           <Route exact path="/Knock" component={ Knock } />
           <Route exact path="/Programming" component={ Programming } />
-          <Route exact path="/Random" component={Random} />
         </Switch>
       </div>
     </Router>
