@@ -2,39 +2,46 @@ import React, { useState } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import "./css/Joke.css";
 
 function General() {
 
-const [ count, setCount ] = useState('');
-const [ joke, setJoke ] = useState('');
-const [ punchline, setPunchline ] = useState('');
+    const [ count, setCount ] = useState('');
+    const [ joke, setJoke ] = useState('');
+    const [ punchline, setPunchline ] = useState('');
+    const [ reveal, setReveal ] = useState('');
 
-const options = {
-  method: 'GET',
-  url: 'https://dad-jokes.p.rapidapi.com/joke/type/general',
-  headers: {
-    'x-rapidapi-key': '71a33360f6mshf7992b774b0f347p18aedfjsnebef70c66ba8',
-    'x-rapidapi-host': 'dad-jokes.p.rapidapi.com'
-  }
-};
-  
-const max= (343);
+    const options = {
+        method: 'GET',
+        url: 'https://dad-jokes.p.rapidapi.com/joke/type/general',
+        headers: {
+            'x-rapidapi-key': '71a33360f6mshf7992b774b0f347p18aedfjsnebef70c66ba8',
+            'x-rapidapi-host': 'dad-jokes.p.rapidapi.com'
+        }
+    };
+
+    const max = (343);
     function getRandomNum() {
-        setCount(Math.floor(Math.random() * (max + 1)))
+        setCount(Math.floor(Math.random() * (max + 1)));
     }
 
     axios.request(options).then(function (response) {
-        console.log(response.data.body);
-        console.log(response.data.body[ count ].setup);
+        //console.log(response.data.body);
+        //console.log(response.data.body[ count ].setup);
         setJoke(response.data.body[ count ].setup);
-        console.log(response.data.body[ count ].punchline);
+        //console.log(response.data.body[ count ].punchline);
         setPunchline(response.data.body[ count ].punchline);
-}).catch(function(error) {
-	console.error(error);
-});
-    
+    }).catch(function (error) {
+        console.error(error);
+    });
+
+    function revealJoke() {
+        setReveal("hello");
+
+    }
+
     return (
         <div className="general">
             <Header />
@@ -44,23 +51,32 @@ const max= (343);
                     <br />
                     Click here for your daily dose 😄
                 </h2>
-                <button onClick={ getRandomNum }>Reveal Jokes</button>
+                <button onClick={ () => {
+                    getRandomNum();
+                    revealJoke();
+                } }>Reveal Jokes</button>
             </section>
             <section className="general__joke">
-                <div className="row">
-                    <div className="col jokeSetUp">
-                        <h3>Q: "{ joke }"</h3>
+                <div>
+                    { reveal }
+                    <div className="row">
+                        <div className="col jokeSetUp">
+                            <h3>Q: "{ joke }"</h3>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col jokePunchline">
+                            <h3>A: "{ punchline }"</h3>
+                        </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col jokePunchline">
-                        <h3>A: "{ punchline }"</h3>
-                    </div>
-                </div>
-            </section>         
+            </section>
+            <button className="header__homeLink">
+                <Link to="/" style={ { color: '#000', textDecoration: 'none' } }>Back to Home</Link>
+            </button>
             <Footer />
         </div>
-    )
+    );
 }
 
-export default General
+export default General;
