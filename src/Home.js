@@ -1,15 +1,20 @@
 import React from 'react';
+import img from './images/dadjokes.png';
 import Header from './Header';
 import Footer from "./Footer";
+
+import "./css/Joke.css";
 
 
 function Home() {
     return (
-        <div>
+        <div className="Home">
             <Header />
-            <h2>Want to hear a joke?</h2>
+            <div className="home_main">
+                <h2>Want to hear a joke?</h2>
             <h2>Select any of the categories above to get started!</h2>
-            <img src="./images/dadjokes.png" alt="Dad Joke" />
+            <img className="dadJokeImg img-fluid" src={ img } alt="Dad Joke"/>
+            </div>
             <Footer />
         </div>
     )
