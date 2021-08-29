@@ -9,6 +9,7 @@ function Home() {
             <Header />
             <h2>Want to hear a joke?</h2>
             <h2>Select any of the categories above to get started!</h2>
+            <img src="./images/dadjokes.png" alt="Dad Joke" />
             <Footer />
         </div>
     )

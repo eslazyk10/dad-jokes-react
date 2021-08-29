@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import axios from "axios";
@@ -9,8 +9,8 @@ import "./css/Joke.css";
 function General() {
 
     const [ count, setCount ] = useState('');
-    const [ joke, setJoke ] = useState('');
-    const [ punchline, setPunchline ] = useState('');
+    const [ joke, setJoke ] = useState('Want to hear a construction joke?');
+    const [ punchline, setPunchline ] = useState('Oh nevermind, I am still working on that one.');
     const [ reveal, setReveal ] = useState('');
 
     const options = {
@@ -37,9 +37,22 @@ function General() {
         console.error(error);
     });
 
-    function revealJoke() {
-        setReveal("hello");
 
+    function revealJoke() {
+        setReveal(
+            <div>
+                <div className="row">
+                    <div className="col jokeSetUp">
+                        <h3>Q: "{ joke }"</h3>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col jokePunchline">
+                        <h3>A: "{ punchline }"</h3>
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     return (
@@ -51,28 +64,16 @@ function General() {
                     <br />
                     Click here for your daily dose 😄
                 </h2>
-                <button onClick={ () => {
+                <button className="revealButton" onClick={ () => {
                     getRandomNum();
                     revealJoke();
                 } }>Reveal Jokes</button>
             </section>
             <section className="general__joke">
-                <div>
-                    { reveal }
-                    <div className="row">
-                        <div className="col jokeSetUp">
-                            <h3>Q: "{ joke }"</h3>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col jokePunchline">
-                            <h3>A: "{ punchline }"</h3>
-                        </div>
-                    </div>
-                </div>
+                { reveal }
             </section>
-            <button className="header__homeLink">
-                <Link to="/" style={ { color: '#000', textDecoration: 'none' } }>Back to Home</Link>
+            <button className="home_button">
+                <Link to="/" style={ { color: '#021419', textDecoration: 'none',  backgroundColor: "whitesmoke" } }>Back to Home</Link>
             </button>
             <Footer />
         </div>

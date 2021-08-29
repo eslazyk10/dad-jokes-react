@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 50vh;
 }
 
 .jokeSetUp {
@@ -44,4 +45,26 @@
   padding: 55px;
   width: 50%;
   margin: 15px;
+}
+
+.revealButton{
+  margin-block: 35px;
+  color: #021419;
+  background-color: lightblue;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  padding-inline: 18px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.home_button{
+  background-color: whitesmoke;
+  color: #021419;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
 }

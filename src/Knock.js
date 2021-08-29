@@ -2,12 +2,14 @@ import React, {useState} from 'react';
 import Header from './Header';
 import Footer from "./Footer";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import "./css/Joke.css"
 function Knock() {
     const [ count, setCount ] = useState('');
-const [ joke, setJoke ] = useState('');
-const [ punchline, setPunchline ] = useState('');
+    const [ joke, setJoke ] = useState('Knock knock. Whos there? Train. Train who?');
+    const [ punchline, setPunchline ] = useState('Someone needs to train you how to open a door.');
+    const [ reveal, setReveal ] = useState('');
 
 const options = {
   method: 'GET',
@@ -33,18 +35,9 @@ const max= (4);
 	console.error(error);
 });
     
-    return (
-        <div className="general">
-            <Header />
-            <section className="general__start">
-                <h2>
-                    Laughter is the best medicine!
-                    <br />
-                    Click here for your daily dose 😄
-                </h2>
-                <button onClick={ getRandomNum }>Reveal Jokes</button>
-            </section>
-            <section className="general__joke">
+    function revealJoke() {
+        setReveal(
+            <div>
                 <div className="row">
                     <div className="col jokeSetUp">
                         <h3>Q: "{ joke }"</h3>
@@ -55,7 +48,30 @@ const max= (4);
                         <h3>A: "{ punchline }"</h3>
                     </div>
                 </div>
-            </section>         
+            </div>
+        );
+    }
+    
+    return (
+        <div className="general">
+            <Header />
+            <section className="general__start">
+                <h2>
+                    Laughter is the best medicine!
+                    <br />
+                    Click here for your daily dose 😄
+                </h2>
+                <button className="revealButton" onClick={ () => {
+                    getRandomNum();
+                    revealJoke();
+                } }>Reveal Jokes</button>
+            </section>
+            <section className="general__joke">
+                {reveal}
+            </section>
+            <button className="home_button">
+                <Link to="/" style={ { color: '#021419', textDecoration: 'none',  backgroundColor: "whitesmoke" } }>Back to Home</Link>
+            </button>
             <Footer />
         </div>
     )
